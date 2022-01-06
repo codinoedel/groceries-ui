@@ -1,11 +1,10 @@
 import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { rootReducer } from './rootReducer'
-import { connectionManager } from './connection/middleware'
-import { testServer } from './testServer'
+import { send } from './http'
 
 export const configureStore = () => {
-  const middlewares = [ connectionManager(), testServer ]
+  const middlewares = [ send ]
   const middlewareEnhancer = applyMiddleware(...middlewares)
 
   const enhancers = [middlewareEnhancer]
