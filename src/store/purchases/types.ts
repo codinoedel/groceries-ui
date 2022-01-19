@@ -17,5 +17,5 @@ export interface Purchase {
   quantity: number
   purchaseDate: string
   savings?: Savings
-
+  store: string
 }

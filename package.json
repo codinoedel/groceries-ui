@@ -20,6 +20,7 @@
   "homepage": "https://github.com/codinoedel/groceries-ui#readme",
   "devDependencies": {
     "@types/react-redux": "^7.1.21",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.45.2",
@@ -37,6 +38,7 @@
     "preact": "^10.6.4",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0"
   }
 }

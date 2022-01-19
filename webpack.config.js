@@ -1,21 +1,16 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
-const htmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  devtool: 'source-map',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
   },
 
-  resolve: {
-    alias: {
-      react: "preact/compat",
-      "react-dom/test-utils": "preact/test-utils",
-      "react-dom": "preact/compat",
-    },
-    extensions: [ '.tsx', '.ts', '.js' ],
-  },
+  mode: 'development',
 
   module: {
     rules: [
@@ -39,10 +34,18 @@ module.exports = {
   },
 
   plugins: [
-    new htmlPlugin()
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
   ],
 
-  mode: 'development',
-
-  devtool: 'source-map'
+  resolve: {
+    alias: {
+      react: "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",
+    },
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
 }

@@ -2,7 +2,6 @@ import { useEffect } from 'preact/hooks'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../hooks'
 import { getPurchaseIds } from '../store/purchases/selectors'
-import { AddPurchase } from './AddPurchase'
 import { Purchase } from './Purchase'
 
 export const Purchases = () => {
@@ -11,8 +10,10 @@ export const Purchases = () => {
 
   return (
     <div>
-      { <AddPurchase /> }
-      { purchaseIds.map((id) => <Purchase id={id} />) }
+      <h3>Purchases</h3>
+      <div>
+        {purchaseIds.map((id) => <Purchase id={id} />)}
+      </div>
     </div>
   )
 }

@@ -1,0 +1,62 @@
+.add-purchase {
+  background-color: var(--blue-m);
+  height: calc(100vh - 4rem);
+
+  form {
+    display: grid;
+    height: calc(100vh - 5.5rem);
+    grid-template-rows: min-content auto min-content min-content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "date store"
+      "name name"
+      "quantity priceper"
+      "button button";
+    gap: 0.5rem;
+
+    .date {
+      grid-area: date;
+    }
+
+    .store {
+      grid-area: store;
+    }
+
+    .name {
+      grid-area: name;
+    }
+
+    .quantity {
+      grid-area: quantity;
+    }
+
+    .priceper {
+      grid-area: priceper;
+    }
+
+    label {
+      font-size: 12px;
+    }
+
+    button[type=submit] {
+      grid-area: button;
+    }
+
+    .input {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      text-align: center;
+      width: 100%;
+
+      & > * {
+        flex: 1;
+      }
+
+      input[type=number], input[type=date] {
+        text-align: right;
+      }
+    }
+  }
+}

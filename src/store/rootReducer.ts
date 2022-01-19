@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
 import { purchasesReducer } from './purchases/reducer'
-// import { connectionReducer } from './connection/reducer'
+import { searchReducer } from './search/reducer'
 
 export const rootReducer = combineReducers({
   purchases: purchasesReducer,
-  // connection: connectionReducer,
+  search: searchReducer,
 })
