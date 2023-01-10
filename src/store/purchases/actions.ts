@@ -1,6 +1,6 @@
-import type { Purchase } from './types'
+import type { BasePurchase } from './types'
 
-export const addPurchase = (purchase: Purchase) => ({
+export const addPurchase = (purchase: BasePurchase) => ({
   type: 'ADD_PURCHASE',
   request: purchase,
 })

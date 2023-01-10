@@ -1,7 +1,6 @@
 import { Middleware } from 'redux'
 
 import type { AppState } from './'
-import type { Purchase } from './purchases/types'
 
 const url = (path: string) => `http://192.168.1.2:3030${path}`
 const options = (overrides: RequestInit) => ({

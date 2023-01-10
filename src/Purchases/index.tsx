@@ -4,6 +4,8 @@ import { useAppSelector } from '../hooks'
 import { getPurchaseIds } from '../store/purchases/selectors'
 import { Purchase } from './Purchase'
 
+import './index.scss'
+
 export const Purchases = () => {
   const purchaseIds = useAppSelector(getPurchaseIds)
   const dispatch = useDispatch()
@@ -11,7 +13,7 @@ export const Purchases = () => {
   return (
     <div>
       <h3>Purchases</h3>
-      <div>
+      <div class='purchases'>
         {purchaseIds.map((id) => <Purchase id={id} />)}
       </div>
     </div>

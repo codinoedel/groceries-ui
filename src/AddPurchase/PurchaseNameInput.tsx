@@ -32,7 +32,7 @@ export const PurchaseNameInput = ({ className, value, onSelectName, required }: 
   }
 
   // ensure options are unique
-  const options = Array.from(new Set([...items, searchTerm]))
+  const options = Array.from(new Set([ searchTerm, ...items ]))
 
   return (
     <div id='purchase-name-input' class={className}>

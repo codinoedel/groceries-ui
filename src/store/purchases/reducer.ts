@@ -1,13 +1,16 @@
 import update from 'immutability-helper'
 import { Action as ReduxAction } from 'redux'
-import type { Purchase } from './types'
+import type { BasePurchase, TotalledPurchase } from './types'
 
+const getTotal = ({ pricePer, quantity }: BasePurchase) => {
+  return pricePer * quantity
+}
 interface AddPurchase extends ReduxAction<'ADD_PURCHASE'> {
-  request: Purchase
+  request: BasePurchase
 }
 
 interface AddPurchaseResponse extends ReduxAction<'ADD_PURCHASE_RESPONSE'> {
-  request: Purchase
+  request: BasePurchase
   status: number
 }
 
@@ -17,7 +20,7 @@ type Action =
 
 export type Purchases = {
   loadingState: string
-  purchases: Record<string, Purchase>
+  purchases: Record<string, TotalledPurchase>
 }
 
 const initialState: Purchases = {
@@ -30,8 +33,10 @@ export const purchasesReducer = (state=initialState, a: Action): Purchases => {
     case 'ADD_PURCHASE':
       return update(state, { $merge: {
         purchases: update(state.purchases, { $merge: {
-          [ new Date().toISOString() ]: a.request,
-        }})
+          [ new Date().toISOString() ]: {
+            ...a.request,
+            total: getTotal(a.request),
+          }}})
       }})
 
     default:

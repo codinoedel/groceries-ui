@@ -1,0 +1,55 @@
+.purchase {
+  border-radius: 3px;
+  color: var(--black);
+  display: grid;
+  gap: 0 0.5rem;
+  grid-template-rows: min-content min-content;
+  grid-template-columns: 1fr min-content;
+  grid-template-areas:
+    "name total"
+    "qty-price-per total";
+  padding: 0.5rem;
+
+  &:nth-child(even) {
+    background-color: var(--mint);
+
+    .qty-price-per {
+      color: var(--green-d);
+    }
+  }
+
+  &:nth-child(odd) {
+    background-color: var(--teal);
+    .qty-price-per {
+      color: var(--blue-d);
+    }
+  }
+
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .total {
+    grid-area: total;
+
+    &::before {
+      display: inline;
+      font-size: 0.75em;
+      margin-right: 0.1rem;
+      opacity: 0.3;
+      content: '$';
+    }
+  }
+
+  .qty-price-per {
+    font-size: 10px;
+    font-weight: 900;
+    grid-area: qty-price-per;
+    white-space: nowrap;
+  }
+}

@@ -1,10 +1,13 @@
 .add-purchase {
   background-color: var(--blue-m);
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 2rem);
 
+  & > h3 {
+    padding: 0.5rem;
+  }
   form {
     display: grid;
-    height: calc(100vh - 5.5rem);
+    height: calc(100vh - 4.5rem);
     grid-template-rows: min-content auto min-content min-content;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -13,6 +16,11 @@
       "quantity priceper"
       "button button";
     gap: 0.5rem;
+    padding: 0 1rem;
+
+    input {
+      font-family: 'Merriweather', sans-serif;
+    }
 
     .date {
       grid-area: date;
